@@ -1,0 +1,8 @@
+name: orblane-test-deploy-app
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: orblane-test-app
+    steps:
+      - run: echo deployed
