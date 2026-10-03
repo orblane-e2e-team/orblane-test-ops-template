@@ -1,0 +1,18 @@
+name: orblane-test-work
+on:
+  workflow_dispatch:
+    inputs:
+      seconds:
+        type: number
+        required: true
+      mode:
+        type: choice
+        options: [sleep, fail]
+        default: sleep
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep ${{ inputs.seconds }}
+      - if: ${{ inputs.mode == 'fail' }}
+        run: exit 1
